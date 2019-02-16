@@ -9,8 +9,12 @@
     <!-- #is not displaying page there must be an error with loading the page. Ask for help. -->
   </head>
   <body id="page-top">
-    <h1>Welcome <%=@user.username%>!</h1>
-    <h2>Your Account Balance is: <%=@user.balance%></h2>
+    <%if User.is_logged_in?(session)%>
+      <h1>Welcome <%=@user.username%>!</h1>
+      <h2>Your Account Balance is: <%=@user.balance%></h2>
+    <%end%>
+    <%else%>
+
   </body>
   <a href="/account/logout">Log Out</a>
 </html>
