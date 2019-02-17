@@ -80,6 +80,7 @@ describe 'ApplicationController' do
       params = {
         "username"=> "skittles123", "password" => "iluvskittles"
       }
+
       post '/login', params
       get '/account'
       expect(last_response.body).to include("<h1>Welcome skittles123</h1>")
@@ -97,7 +98,7 @@ describe 'ApplicationController' do
       get '/logout'
       expect(session[:user_id]).to be(nil)
     end
-    
+
     it 'redirects to \'/\'' do
       get '/logout'
       follow_redirect!
